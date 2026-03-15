@@ -1,7 +1,205 @@
 # GitHub Changelog — Week 11, 2026
 
-> **Period:** 2026-03-04 to 2026-03-11
+> **Period:** 2026-03-08 to 2026-03-15
 > **Source:** https://github.blog/changelog/
+
+---
+
+## Optionally skip approval for Copilot coding agent Actions workflows
+
+**Published:** 2026-03-13
+**Source:** https://github.blog/changelog/2026-03-13-optionally-skip-approval-for-copilot-coding-agent-actions-workflows
+
+### Description
+
+When Copilot coding agent opens a pull request or pushes changes, Copilot is treated like an outside contributor in an open source project. GitHub Actions workflows do not run until approved by a human with the **Approve and run workflows** button.
+
+This helps protect you from security risks, given that GitHub Actions workflows may have access to tokens, secrets, or repository permissions, depending on your configuration. However, it slows down the feedback loop for validating Copilot's work and finding out if tests pass.
+
+In some repositories, you may want GitHub Actions workflows to run automatically so you can iterate more quickly, despite the risks.
+
+**We've added a new repository setting to allow repository administrators to skip the human approval so workflows run immediately.** By default, as before, we'll require approval from a human before workflows run.
+
+To learn more, see ["Configuring settings for GitHub Copilot coding agent"](https://docs.github.com/copilot/how-tos/use-copilot-agents/coding-agent/configuring-agent-settings) in the GitHub Docs.
+
+### Additional Resources
+
+- [Configuring settings for GitHub Copilot coding agent](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/configuring-agent-settings) — Step-by-step guide for enabling the "skip approval" setting for Copilot coding agent Actions workflow runs in repository settings.
+- [About Copilot coding agent](https://docs.github.com/copilot/concepts/agents/coding-agent/about-coding-agent) — Conceptual overview of the Copilot coding agent and the security model behind its GitHub Actions integration.
+- [About security hardening with OpenID Connect](https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/about-security-hardening-with-openid-connect) — Explains best practices for securing GitHub Actions workflows, relevant when granting automated agents broader permissions.
+
+---
+
+## Self-hosted runner minimum version enforcement paused
+
+**Published:** 2026-03-13
+**Source:** https://github.blog/changelog/2026-03-13-self-hosted-runner-minimum-version-enforcement-paused
+
+### Description
+
+We're temporarily pausing GitHub Actions enforcement of the minimum self-hosted runner version requirement (v2.329.0) scheduled to take effect on March 16, 2026. Runners below v2.329.0 can still register and configure during this period.
+
+We'll publish an updated timeline and enforcement plan in the coming weeks. We strongly encourage you to continue upgrading your self-hosted runners to v2.329.0 or later as soon as you can (review the [upgrade documentation](https://docs.github.com/enterprise-cloud@latest/actions/reference/runners/self-hosted-runners#runner-software-updates-on-self-hosted-runners) for detailed guidance).
+
+This doesn't change our long-term direction. We still plan to block older runner versions from registration and configuration. We're taking this time to ensure a smooth transition.
+
+For reference, here are the previous communications on this topic:
+
+- [Self-hosted runner minimum version enforcement extended (February 2026)](https://github.blog/changelog/2026-02-05-github-actions-self-hosted-runner-minimum-version-enforcement-extended/)
+- [Better diagnostics for VNET injected runners and required self-hosted runner upgrades (December 2025)](https://github.blog/changelog/2025-12-12-better-diagnostics-for-vnet-injected-runners-and-required-self-hosted-runner-upgrades/)
+
+Learn more in [our documentation about self-hosted runner management](https://docs.github.com/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).
+
+### Additional Resources
+
+- [About self-hosted runners](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners) — Overview of self-hosted runner capabilities and guidance on managing runner software updates.
+- [Self-hosted runner minimum version enforcement extended (February 2026)](https://github.blog/changelog/2026-02-05-github-actions-self-hosted-runner-minimum-version-enforcement-extended/) — Previous changelog entry explaining the enforcement timeline extension and upgrade requirements.
+- [Better diagnostics for VNET injected runners (December 2025)](https://github.blog/changelog/2025-12-12-better-diagnostics-for-vnet-injected-runners-and-required-self-hosted-runner-upgrades/) — Earlier announcement introducing the minimum version requirement and upgrade tooling for VNET-injected runners.
+
+---
+
+## Updates to GitHub Copilot for students
+
+**Published:** 2026-03-13
+**Source:** https://github.blog/changelog/2026-03-13-updates-to-github-copilot-for-students
+
+### Description
+
+Starting today, students with GitHub Education benefits are now on the new **GitHub Copilot Student plan**. As part of this transition, we've updated the available model lineup. The new GitHub Copilot Student plan allows us to focus on building a long-term, sustainable Copilot experience tailored for students with continued investment in AI-native learning tools.
+
+Please visit our [Community Discussion](https://gh.io/copilot4edu) for a full breakdown of what's changing.
+
+### Additional Resources
+
+- [GitHub Copilot for students — Community Discussion](https://gh.io/copilot4edu) — Full breakdown of what's changing in the GitHub Copilot Student plan, including updated model availability and benefit details.
+- [GitHub Education for Students](https://education.github.com/students) — Overview of all GitHub Education benefits available to verified students, including access to Copilot and developer tools.
+- [GitHub Copilot Plans](https://github.com/features/copilot/plans) — Comparison of all available GitHub Copilot subscription plans, including the new Student plan.
+
+---
+
+## REST API version 2026-03-10 is now available
+
+**Published:** 2026-03-12
+**Source:** https://github.blog/changelog/2026-03-12-rest-api-version-2026-03-10-is-now-available
+
+### Description
+
+Previously, we [introduced calendar-based versioning](https://github.blog/developer-skills/github/to-infinity-and-beyond-enabling-the-future-of-githubs-rest-api-with-api-versioning/) for our REST API, giving us a path to evolving our API while giving integrators plenty of time and clear guidance for upgrading.
+
+Now, we're releasing calendar version **`2026-03-10`**, the newest version of the GitHub REST API. This is the **first calendar version to include breaking changes**.
+
+**What's in this release**
+
+Version `2026-03-10` introduces a set of breaking changes to the REST API. You can find the full list of changes, along with [upgrade guidance](https://docs.github.com/rest/about-the-rest-api/breaking-changes#upgrading-to-a-new-api-version), in our [breaking changes documentation](https://docs.github.com/rest/about-the-rest-api/breaking-changes?apiVersion=2026-03-10).
+
+As a reminder, non-breaking changes (e.g., new endpoints, optional parameters, additional response fields) continue to be available across all supported API versions.
+
+**What this means for existing integrations**
+
+Version `2022-11-28` will continue to be fully supported for at least 24 months from today, and requests that don't include the `X-GitHub-Api-Version` header will continue to default to `2022-11-28`.
+
+When you're ready to upgrade, update the `X-GitHub-Api-Version` header to `2026-03-10` and verify that your integration works as expected.
+
+Use the version picker in our [API documentation](https://docs.github.com/rest) to view the docs for all available versions.
+
+### Additional Resources
+
+- [Breaking changes in the REST API](https://docs.github.com/en/rest/about-the-rest-api/breaking-changes) — Complete list of breaking changes introduced in version `2026-03-10`, including affected endpoints and migration guidance.
+- [API versioning overview](https://docs.github.com/en/rest/overview/api-versions) — Explains GitHub's calendar-based REST API versioning and how to specify the API version in requests using the `X-GitHub-Api-Version` header.
+- [GitHub REST API reference](https://docs.github.com/en/rest) — Full reference documentation for all REST API endpoints, with a version picker to view docs for each supported API version.
+
+---
+
+## Copilot auto model selection is generally available in JetBrains IDEs
+
+**Published:** 2026-03-12
+**Source:** https://github.blog/changelog/2026-03-12-copilot-auto-model-selection-is-generally-available-in-jetbrains-ides
+
+### Description
+
+GitHub Copilot auto model selection is now generally available in JetBrains IDEs for all Copilot plans. With auto, Copilot chooses a model on your behalf based on real-time model availability and performance.
+
+**How it works**
+
+Auto is dynamic, giving you reliable access to your favorite models while mitigating rate limits. It routes to models like GPT-5.4, GPT-5.3-Codex, Sonnet 4.6, and Haiku 4.5 depending on your plan and policies.
+
+- **Transparency**: See which model was used by hovering over the model response.
+- **Stay in control**: Switch between auto and any specific model at any time.
+- **Respects your policies**: Auto honors all administrator model settings.
+
+**Premium request use**
+
+Premium request use for auto is billed based on the model it selects. All paid subscribers get a 10% discount on the model multiplier when using auto. For example, when auto uses a model with a 1x multiplier, you'll draw down 0.9 premium requests instead of 1.
+
+**Where we're headed**
+
+Soon, auto will become even more intelligent, gaining enhanced capabilities that allow Copilot to select the most appropriate model for your task, matching the model to the complexity level of your request.
+
+### Additional Resources
+
+- [GitHub Copilot plugin for JetBrains IDEs](https://plugins.jetbrains.com/plugin/17718-github-copilot--your-ai-pair-programmer/versions) — Download or update to the latest version of the GitHub Copilot plugin to use auto model selection in JetBrains IDEs.
+- [Copilot model multipliers and billing](https://docs.github.com/copilot/concepts/billing/copilot-requests#model-multipliers) — Explains how premium requests are calculated per model and how the 10% auto discount is applied.
+- [Copilot conversations community discussion](https://github.com/orgs/community/discussions/categories/copilot-conversations) — Community forum to share feedback and ask questions about GitHub Copilot features including auto model selection.
+
+---
+
+## Actions OIDC tokens now support repository custom properties
+
+**Published:** 2026-03-12
+**Source:** https://github.blog/changelog/2026-03-12-actions-oidc-tokens-now-support-repository-custom-properties
+
+### Description
+
+GitHub Actions OpenID Connect (OIDC) tokens now support repository custom properties as claims. A new settings page is available in public preview, making it easy to configure OIDC token claims directly from your repository, organization, or enterprise settings.
+
+Organization and enterprise admins can select custom properties to include in OIDC tokens. Once a property is added to the claim, every repository with that property value set will automatically include it in its OIDC tokens, prefixed with `repo_property_`. You can use these claims to build attribute-based access control (ABAC) policies in Azure, AWS, GCP, and other cloud providers without modifying individual workflows.
+
+With custom properties in OIDC tokens, you can:
+
+- **Eliminate duplication**: Your governance metadata lives in one place and flows automatically into your cloud policies.
+- **Reduce configuration drift**: Policies bind directly to repository attributes, so they stay accurate as your organization evolves.
+- **Accelerate onboarding**: New repositories automatically inherit the right access policies based on their properties.
+- **Create consistent cross-cloud policies**: Turn your existing GitHub metadata into an actionable control surface for managed identities across AWS, Azure, GCP, and beyond.
+
+To learn more, see [Customizing the OIDC token](https://docs.github.com/actions/security-for-github-actions/security-hardening-your-deployments/about-security-hardening-with-openid-connect#customizing-the-token-claims).
+
+### Additional Resources
+
+- [About security hardening with OpenID Connect](https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/about-security-hardening-with-openid-connect) — Comprehensive guide to using OIDC tokens with GitHub Actions for secure, secretless cloud deployments.
+- [Customizing the OIDC token claims](https://docs.github.com/actions/security-for-github-actions/security-hardening-your-deployments/about-security-hardening-with-openid-connect#customizing-the-token-claims) — Details on adding custom properties and subject claims to OIDC tokens for use in cloud provider trust policies.
+- [Managing custom properties for repositories](https://docs.github.com/en/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization) — Explains how to create and manage repository custom properties that can now be embedded in OIDC token claims.
+
+---
+
+## Issue fields: Structured issue metadata is in public preview
+
+**Published:** 2026-03-12
+**Source:** https://github.blog/changelog/2026-03-12-issue-fields-structured-issue-metadata-is-in-public-preview
+
+### Description
+
+Issue fields are now available in public preview for select GitHub organizations.
+
+If you've been using labels like `priority/p0` or `severity/high` to track structured data in issues, you know the limitations: no types, no validation, no consistency across repositories, and no way to report on them. Issue fields replace unstructured text in the issue body and label-based workarounds with typed, org-wide metadata that's searchable, reportable, and consistent across every repository.
+
+Out of the box, every organization gets four fields preconfigured and pinned to the right issue types: `Priority`, `Effort`, `Start date`, and `Target date`. Create a bug, and you'll see `Priority` and `Effort` in the sidebar. Create a feature and you get all four.
+
+From there, organization admins can customize everything:
+
+- **Four field types**: Single select, text, number, and date, with up to 25 fields per organization.
+- **Pin fields to issue types**: Control which fields show up for bugs, features, tasks, your custom types, or issues without a type.
+- **Search and filter**: Find issues by field values across repositories.
+- **Projects integration**: Add issue fields as columns in project views to group, filter, and sort.
+- **Timeline events**: Track who changed which field and when.
+- **Full API support**: REST and GraphQL APIs for field settings and values, plus `field_added` and `field_removed` webhook events for GitHub Actions.
+
+Issue fields is rolling out to a selection of organizations. To request access, comment in the [community discussion](https://github.com/orgs/community/discussions/189141) with your organization name and use case.
+
+### Additional Resources
+
+- [Managing issue fields in an organization](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/managing-issue-fields-in-an-organization) — Official documentation on creating, configuring, and managing custom issue fields at the organization level.
+- [Issue fields community discussion](https://github.com/orgs/community/discussions/189141) — Request access to the public preview and provide feedback on issue fields with your use case.
+- [About GitHub Projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects) — Overview of GitHub Projects, which integrates with issue fields to support grouping and filtering by field values.
 
 ---
 
@@ -26,17 +224,13 @@ This release also introduces a search-based experience for selecting reviewers a
 
 **Who can use this**
 
-This feature is available on all [plans that include Copilot code review](https://docs.github.com/copilot/concepts/agents/code-review#availability). [Install or upgrade](https://github.com/cli/cli?tab=readme-ov-file#installation) to GitHub CLI [v2.88.0](https://github.com/cli/cli/releases/tag/v2.88.0) or later to get started.
-
-For more details, check out [the GitHub CLI release notes](https://github.com/cli/cli/releases). To learn more about Copilot code review, visit the [Copilot code review documentation](https://docs.github.com/copilot/using-github-copilot/code-review/using-copilot-code-review).
-
-Have feedback or run into an issue? [Open an issue in the cli/cli repository](https://github.com/cli/cli/issues).
+This feature is available on all [plans that include Copilot code review](https://docs.github.com/copilot/concepts/agents/code-review#availability). Install or upgrade to GitHub CLI [v2.88.0](https://github.com/cli/cli/releases/tag/v2.88.0) or later to get started.
 
 ### Additional Resources
 
-- [Using Copilot Code Review](https://docs.github.com/en/copilot/using-github-copilot/code-review/using-copilot-code-review) — Official documentation on how to request code review from GitHub Copilot in pull requests, covering both web and CLI workflows.
-- [GitHub CLI v2.88.0 release notes](https://github.com/cli/cli/releases/tag/v2.88.0) — Release notes for the CLI version that introduced Copilot as a reviewer option in `gh pr create` and `gh pr edit`.
-- [Copilot code review availability](https://docs.github.com/en/copilot/concepts/agents/code-review#availability) — Overview of which Copilot plans include code review capabilities and how to enable the feature.
+- [Using Copilot code review](https://docs.github.com/en/copilot/using-github-copilot/code-review/using-copilot-code-review) — Complete guide to requesting and working with Copilot code reviews, including how to apply suggested changes.
+- [GitHub CLI v2.88.0 release notes](https://github.com/cli/cli/releases/tag/v2.88.0) — Release notes for the GitHub CLI version that introduces the `--add-reviewer @copilot` flag and the search-based reviewer selection UX.
+- [GitHub CLI repository](https://github.com/cli/cli) — Source code, installation instructions, and issue tracker for the GitHub CLI tool.
 
 ---
 
@@ -49,44 +243,44 @@ Have feedback or run into an issue? [Open an issue in the cli/cli repository](ht
 
 This update brings several new features and improvements to GitHub Copilot in JetBrains IDEs. Core agentic capabilities, including custom agents, sub-agents, and plan agent, are now generally available, with agent hooks in preview and auto-approve support for MCP.
 
-It also expands support for agent instruction files, makes auto model selection generally available, enhances the model and reasoning experience, and includes additional user experience and quality improvements.
-
 **New features**
 
 *Agentic capabilities*
 
-- **Custom agents, sub-agents, and plan agent now generally available:** These capabilities make it easier to tailor Copilot to your workflows and collaborate with specialized agents directly within your IDE. Learn more about [creating a custom agent in JetBrains IDEs](https://docs.github.com/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents#creating-a-custom-agent-profile-in-jetbrains-ides).
-- **Agent hooks support in public preview:** Agent hooks let you run custom commands at key points during agent sessions. You can define your `hooks.json` file in the `.github/hooks/` folder. Supported events include `userPromptSubmitted`, `preToolUse`, `postToolUse`, and `errorOccurred`.
-- **Auto-approve support for MCP:** Configure auto-approve for MCP at both the server and tool level via **Settings > GitHub Copilot > Chat > MCP Server and Tool Auto-approve Configuration**.
+- **Custom agents, sub-agents, and plan agent** are now generally available. These capabilities make it easier to tailor Copilot to your workflows and collaborate with specialized agents directly within your IDE.
+- **Agent hooks** are available in public preview. Supported events include `userPromptSubmitted`, `preToolUse`, `postToolUse`, and `errorOccurred`. Define your `hooks.json` file in the `.github/hooks/` folder of your repository.
+- **Auto-approve support for MCP**: Configure auto-approve at both the server and tool level, reducing manual approvals in chat.
 
 *Customization and instructions*
 
-- **Agent instruction file support:** Support for `AGENTS.md` and `CLAUDE.md` instruction files, including the ability to generate an initial `AGENTS.md` file.
-- **`/memory` slash command:** Quickly open settings for agent instruction files.
+- **Agent instruction file support**: Support added for `AGENTS.md` and `CLAUDE.md` instruction files, including the ability to generate an initial `AGENTS.md` file.
+- **`/memory` slash command**: Quickly open settings for agent instruction files.
 
 *Model selection and reasoning visibility*
 
-- **Auto model selection now generally available:** Copilot can choose a model on your behalf based on real-time model availability and performance.
-- **Thinking panel for extended-reasoning models:** A dedicated thinking panel for extended-reasoning models such as Codex, with configurable Anthropic thinking budgets.
-- **Context window usage indicator:** A new indicator in the chat panel shows how much context is being used during a conversation.
+- **Auto model selection** is now generally available in JetBrains IDEs for all Copilot plans.
+- **Thinking panel** for extended-reasoning models with configurable Anthropic thinking budgets.
+- **Context window usage indicator** in the chat panel.
 
-**User experience**
+**User experience improvements**
 
-Improved sign-in experience, more responsive chat panel layout, cleaner auto-approve UI, refined NES trigger timing, and improved support for Windows ARM platforms.
+- Improved sign-in experience with automatic chat panel opening after sign-in.
+- More responsive chat panel layout and cleaner context/file attachment handling.
+- Improved support for Windows ARM platforms.
 
 **Quality improvements**
 
-Improved stability when reading terminal output, resolved issues with `replace_string_in_file` tool, addressed UI inconsistencies, and reduced visual glitches such as file icon flicker.
+- Improved stability when reading terminal output.
+- Resolved issues where file updates were not applied correctly by the `replace_string_in_file` tool.
+- Addressed UI inconsistencies and reduced visual glitches.
 
-**Deprecation**
-
-Edit mode has been marked as deprecated in the chat mode dropdown.
+**Deprecation**: Edit mode has been marked as deprecated in the chat mode dropdown.
 
 ### Additional Resources
 
-- [Creating custom agents in JetBrains IDEs](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents) — Official documentation on creating and configuring custom agents in JetBrains IDEs with `.agent.md` profile files.
-- [Using agent hooks](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/use-hooks) — Official documentation on configuring agent hooks to run custom commands at key lifecycle events during agent sessions.
-- [GitHub Copilot plugin for JetBrains](https://plugins.jetbrains.com/plugin/17718-github-copilot--your-ai-pair-programmer/versions) — JetBrains Marketplace page for installing or upgrading to the latest version of the GitHub Copilot plugin.
+- [Creating custom agents in JetBrains IDEs](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents) — Guide to creating and configuring specialized agent profiles for use within JetBrains IDEs.
+- [Agent hooks documentation](https://docs.github.com/copilot/how-tos/use-copilot-agents/coding-agent/use-hooks) — Documentation on configuring agent hooks to automate and integrate workflows during Copilot agent sessions.
+- [GitHub Copilot plugin for JetBrains IDEs](https://plugins.jetbrains.com/plugin/17718-github-copilot--your-ai-pair-programmer/versions) — Install or update the latest Copilot plugin for JetBrains IDEs to access all new agentic capabilities.
 
 ---
 
@@ -107,279 +301,12 @@ Developers can now ask Copilot to show a file, then browse the file tree alongsi
 
 As you navigate the file explorer, files you select get automatically added to your current chat as temporary references. You can choose to add these as permanent references by clicking the reference token or double clicking the file preview tab.
 
-**Try it out**
-
 This feature is now available in public preview. Join the discussion within [GitHub Community](https://github.com/orgs/community/discussions/189235).
 
 ### Additional Resources
 
-- [GitHub Copilot on GitHub.com](https://docs.github.com/en/copilot) — The GitHub Copilot documentation hub covering all Copilot features available on GitHub.com.
-- [GitHub Community discussion](https://github.com/orgs/community/discussions/189235) — Community discussion thread for the repository exploration feature, where you can share feedback and experiences.
-- [Using GitHub Copilot Chat](https://docs.github.com/en/copilot/how-tos/chat/use-github-copilot-chat-in-githubcom) — Official documentation on interacting with Copilot Chat on GitHub.com to explore codebases and ask contextual questions.
-
----
-
-## Secret scanning pattern updates — March 2026
-
-**Published:** 2026-03-10
-**Source:** https://github.blog/changelog/2026-03-10-secret-scanning-pattern-updates-march-2026
-
-### Description
-
-GitHub secret scanning continually updates its detectors, validators, and analyzers. Here's what's new for March 2026.
-
-- **28 new secret detectors** from 15 providers, including Lark, Vercel, Snowflake, and Supabase.
-- **39 detectors now have push protection enabled by default**, including Airtable, Databricks, Heroku, PostHog, and Shopify.
-- **Validity checks** added for Airtable, DeepSeek, npm, Pinecone, and Sentry tokens.
-
-**Detectors added**
-
-Secret scanning now automatically detects new secret types including Azure Active Directory application IDs and secrets, Baidu AI API keys, Figma SCIM tokens, Flickr API keys, Langchain LangSmith keys, Lark app credentials, Limbar tokens, PostHog OAuth tokens, Proof API keys, Snowflake Postgres credentials, Supabase tokens, Vercel API keys and tokens, Weatherstack API keys, and WSO2 Choreo personal access tokens.
-
-`Partner` secrets are automatically reported to the secret issuer when found in public repositories through the secret scanning partnership program.
-
-`User` secrets generate secret scanning alerts when found in public or private repositories.
-
-**Validators added**
-
-The following secret types now support validity checks: Airtable personal access token, DeepSeek API key, npm access token, Pinecone API key and environment, Sentry personal token.
-
-### Additional Resources
-
-- [About secret scanning](https://docs.github.com/en/code-security/secret-scanning/introduction/about-secret-scanning) — Official documentation explaining how GitHub automatically detects exposed credentials and API keys to prevent unauthorized access.
-- [Supported secret scanning patterns](https://docs.github.com/en/code-security/secret-scanning/introduction/supported-secret-scanning-patterns) — Complete list of all supported secret types detected by GitHub secret scanning, updated for the March 2026 additions.
-- [About push protection](https://docs.github.com/en/enterprise-cloud@latest/code-security/concepts/secret-security/about-push-protection) — Documentation on how push protection blocks commits containing matching secrets, now enabled by default for 39 additional detector types.
-
----
-
-## CodeQL 2.24.3 adds Java 26 support and other improvements
-
-**Published:** 2026-03-10
-**Source:** https://github.blog/changelog/2026-03-10-codeql-2-24-3-adds-java-26-support-and-other-improvements
-
-### Description
-
-CodeQL is the static analysis engine behind [GitHub code scanning](https://docs.github.com/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql), which finds and remediates security issues in your code. We've recently released [CodeQL 2.24.3](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.24.3/), which adds support for Java 26 and includes various improvements that enhance the accuracy of your code scanning results.
-
-**Language and framework support**
-
-*Java/Kotlin*
-
-- CodeQL now supports Java 26.
-- Java analysis now selects the Java version based on Maven POM files across all project modules. It also tries to use Java 17 or higher for all Maven projects if possible, for improved build compatibility.
-
-*JavaScript/TypeScript*
-
-- Added support for React components wrapped by `observer` from `mobx-react` and `mobx-react-lite`.
-
-**Query changes**
-
-*Python*
-
-- Added a new full SSRF sanitization barrier from the new AntiSSRF library.
-- When a guard such as `isSafe(x)` is defined, it now also automatically handles `isSafe(x) == true` and `isSafe(x) != false`.
-
-*Ruby*
-
-- Now tracks taint flow through `Shellwords.escape` and `Shellwords.shellescape` for all queries except command injection.
-
-*Java/Kotlin*
-
-- Expanded modeling from `javax` packages to also cover `jakarta` packages, which may lead to increased alerts for packages using the `jakarta` namespace.
-
-*Rust*
-
-- Added support for neutral models (`extensible: neutralModel`).
-
-*C/C++*
-
-- Improved the `cpp/leap-year/unchecked-after-arithmetic-year-modification` query to reduce false positives.
-
-*C#*
-
-- C# 14: Added support for the `field` keyword in properties.
-
-Every new version of CodeQL is automatically deployed to users of GitHub code scanning on github.com.
-
-### Additional Resources
-
-- [CodeQL CLI 2.24.3 changelog](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.24.3/) — Full release notes for CodeQL 2.24.3 with details on all language support and query improvements.
-- [About code scanning with CodeQL](https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql) — Official documentation explaining how CodeQL works as a static analysis engine to find and remediate security vulnerabilities.
-- [CodeQL documentation hub](https://codeql.github.com/docs/) — Comprehensive CodeQL documentation covering language support, writing queries, and configuration options.
-
----
-
-## Dependabot now supports pre-commit hooks
-
-**Published:** 2026-03-10
-**Source:** https://github.blog/changelog/2026-03-10-dependabot-now-supports-pre-commit-hooks
-
-### Description
-
-GitHub Dependabot now natively supports automatic dependency updates for [pre-commit](https://pre-commit.com/) hooks. By adding `pre-commit` as a package ecosystem in your `dependabot.yml` configuration, Dependabot will parse your `.pre-commit-config.yaml`, check each hook's repository for new tags or releases, and open pull requests to update the `rev` field. This is all fully integrated into your existing Dependabot workflow.
-
-Supported features include:
-
-- **Tag and SHA-based revisions**: Works with hooks pinned to Git tags (e.g., `v4.5.0`) or commit SHAs.
-- **Grouped updates**: Combine multiple hook updates into a single pull request using Dependabot's existing [grouped updates](https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#groups) configuration.
-- **Changelog and release notes**: Pull requests include changelogs and release notes from hook repositories so you can review what's changed before merging.
-- **YAML formatting preservation**: Updates modify the `rev` value and any inline version comments (e.g., `# frozen:`) to reflect the new version, all while keeping your existing structure intact.
-- **Graceful handling of `local` and `meta` repos**: Dependabot automatically skips `local` and `meta` hook definitions that don't require version updates.
-- **Multi-host support**: Works with hooks hosted on GitHub, GitLab, Bitbucket, and other Git hosting providers.
-
-To get started, [configure pre-commit support in Dependabot version updates](https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates) and join the [conversation in `dependabot-core`](https://github.com/dependabot/dependabot-core/issues/1524).
-
-### Additional Resources
-
-- [Configuring Dependabot version updates](https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates) — Official documentation on how to configure Dependabot to automatically update dependencies, including setting up the new `pre-commit` ecosystem in `dependabot.yml`.
-- [pre-commit framework](https://pre-commit.com/) — Official site for the pre-commit framework, explaining how to configure hooks in `.pre-commit-config.yaml` that Dependabot will now keep up to date.
-- [Dependabot grouped updates configuration](https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#groups) — Documentation on how to combine multiple pre-commit hook updates into a single pull request using the `groups` option.
-
----
-
-## Figma MCP server can now generate design layers from VS Code
-
-**Published:** 2026-03-06
-**Source:** https://github.blog/changelog/2026-03-06-figma-mcp-server-can-now-generate-design-layers-from-vs-code
-
-### Description
-
-GitHub Copilot users can now connect to the Figma MCP server to both pull design context into code and send rendered UI to Figma as editable frames. Together, these capabilities support a connected workflow: generate code from a design, send your UI back to Figma for iteration, and pull updates back into your codebase. This feature is available today in VS Code and coming soon to Copilot CLI.
-
-**How it works**
-
-Getting started with the Figma MCP server and GitHub Copilot is simple:
-
-1. Install the [Figma MCP server](https://developers.figma.com/docs/figma-mcp-server/remote-server-installation/#vs-code).
-2. Connect your Figma account.
-3. Use Copilot to pull design context from Figma into code or create editable frames in Figma from your rendered UIs.
-
-**Who can use this feature**
-
-Any developer with a GitHub Copilot subscription can connect to the Figma MCP server. This is available on all Figma seats and plans. Capturing UI to Figma as editable frames requires the remote MCP server.
-
-Learn more about the [Figma MCP server](https://help.figma.com/hc/articles/32132100833559-Guide-to-the-Figma-MCP-server).
-
-### Additional Resources
-
-- [Guide to the Figma MCP server](https://help.figma.com/hc/articles/32132100833559-Guide-to-the-Figma-MCP-server) — Official Figma documentation covering how to install and use the Figma MCP server to bridge designs and code with GitHub Copilot.
-- [Figma MCP server installation for VS Code](https://developers.figma.com/docs/figma-mcp-server/remote-server-installation/#vs-code) — Step-by-step developer guide for installing the remote Figma MCP server in Visual Studio Code to enable UI-to-Figma capabilities.
-- [GitHub Community announcements](https://github.com/orgs/community/discussions/categories/announcements) — GitHub Community announcements channel where the Figma MCP server feature was discussed and where you can share feedback.
-
----
-
-## GitHub Copilot in Visual Studio Code v1.110 — February release
-
-**Published:** 2026-03-06
-**Source:** https://github.blog/changelog/2026-03-06-github-copilot-in-visual-studio-code-v1-110-february-release
-
-### Description
-
-The Visual Studio Code February 2026 release makes agents practical for longer-running and more complex tasks. This gives you more control over how they run, new ways to extend what they can do, and smarter session management that keeps context intact.
-
-**Program your agents**
-
-- Automate with hooks: Run your code at key agent lifecycle events to enforce policies, auto-lint, or block commands before they execute.
-- Fork a conversation: Branch from any checkpoint to explore an alternative path without losing your starting point.
-- Auto-approve from chat: Toggle global auto approval with `/autoApprove` or `/yolo` directly in the chat input and pair it with terminal sandboxing to let agents run within boundaries.
-- Queue and steer from chat: Send follow-up messages while the agent is working to redirect its approach without waiting for it to finish.
-
-**Extend your agents**
-
-- Agent plugins: Install prepackaged bundles of skills, tools, hooks, and MCP servers from the Extensions view. This is currently available as an `/experimental` feature.
-- Use skills as slash commands: Trigger agent skills from chat, including ones contributed by your extensions.
-- Agentic browser tools: Let agents drive the integrated browser to navigate, click, screenshot, and verify their own changes. This is currently available as an `/experimental` feature.
-- Create customizations from chat: Generate reusable prompts, skills, agents, and hooks directly from a conversation with `/create-*` commands.
-
-In addition, Copilot CLI is now included in VS Code with native support including diff tabs, trusted folder sync, and right-click to send code snippets.
-
-**Give agents the right context**
-
-- Share agent memory: Agents share and store knowledge across the Copilot coding agent, Copilot CLI, and code review so context builds up over time.
-- Plan memory: Plans persist across turns and through compaction, so the agent builds on existing work instead of starting over.
-- Built-in Explore subagent: Delegates fast, parallelized codebase research to lightweight models so the Plan agent references specific files and code paths.
-- Context compaction: Copilot automatically compacts conversation history when the context window fills up. You can now trigger compaction manually with `/compact`.
-- Handle large outputs: Large tool output is written to disk instead of stuffed into context, so important details aren't lost during compaction.
-
-Also, long-distance next edit suggestions predict edits anywhere in your file.
-
-**Related VS Code productivity updates**
-
-- Kitty graphics protocol for high-fidelity images in the terminal.
-- Redesigned model picker with search, sections, and rich hover details.
-- Chat accessibility improvements for screen readers, keyboard navigation, and notification signals.
-- AI coauthor attribution for commits with AI-generated code.
-
-### Additional Resources
-
-- [VS Code February 2026 release notes](https://code.visualstudio.com/updates/v1_110) — Detailed official release notes for Visual Studio Code v1.110 covering all agent features, hooks, plugins, and context management improvements.
-- [GitHub Copilot agent hooks documentation](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/use-hooks) — Documentation on configuring agent hooks to automate lifecycle events in Copilot agent sessions in VS Code.
-- [GitHub Community announcements](https://github.com/orgs/community/discussions/categories/announcements) — Community hub for the VS Code February 2026 release discussion where users share feedback on new features.
-
----
-
-## GPT-5.4 is generally available in GitHub Copilot
-
-**Published:** 2026-03-05
-**Source:** https://github.blog/changelog/2026-03-05-gpt-5-4-is-generally-available-in-github-copilot
-
-### Description
-
-GPT-5.4, OpenAI's latest agentic coding model, is now rolling out in GitHub Copilot. In our early testing of real-world, agentic, and software development capabilities, GPT-5.4 consistently hits new rates of success. It also shows enhanced logical reasoning and task execution for intricate, multi-step, tool-dependent processes.
-
-**Availability in GitHub Copilot**
-
-GPT-5.4 will be available to [Copilot Pro, Pro+, Business, and Enterprise](https://github.com/features/copilot/plans) users.
-
-You'll be able to select the model in the model picker in:
-
-- Visual Studio Code version v1.104.1 and later in all modes: chat, ask, edit, agent
-- Visual Studio version 17.14.19 and later in all modes: agent, ask
-- JetBrains versions 1.5.66 and later, in all modes: ask, edit, agent
-- Xcode versions 0.48.0 and later in all modes: ask, agent
-- Eclipse versions 0.15.1 and later in all modes: ask, agent
-- github.com
-- GitHub Mobile iOS and Android
-- GitHub CLI
-- GitHub Copilot Coding Agent
-
-**Enabling access**
-
-Copilot Enterprise and Copilot Business plan administrators must enable the GPT-5.4 policy in Copilot settings.
-
-### Additional Resources
-
-- [Supported AI models in GitHub Copilot](https://docs.github.com/en/copilot/reference/ai-models/supported-models) — Official documentation listing all supported AI models in GitHub Copilot, including availability per plan, client, and premium request multipliers.
-- [GitHub Copilot plans](https://github.com/features/copilot/plans) — Overview of Copilot Pro, Pro+, Business, and Enterprise plans detailing which models and features are available at each tier.
-- [Changing the AI model in Copilot Chat](https://docs.github.com/en/copilot/how-tos/use-ai-models/change-the-chat-model) — Step-by-step instructions for selecting GPT-5.4 and other models in the Copilot model picker across supported IDEs and GitHub.com.
-
----
-
-## Discover and manage agent activity with new session filters
-
-**Published:** 2026-03-05
-**Source:** https://github.blog/changelog/2026-03-05-discover-and-manage-agent-activity-with-new-session-filters
-
-### Description
-
-GitHub [Enterprise AI Controls and agent control plane](https://docs.github.com/copilot/concepts/agents/enterprise-management) now includes additional session filters, making it easier to discover and manage agent activity across your enterprise.
-
-**What's new**
-
-In addition to searching for agentic session activity by agents and by organizations within your enterprise, we've now rolled out the following filters:
-
-- **Status**: Search for sessions by status, such as queued, in progress, completed, failed, idle waiting for user, timed out, and cancelled.
-- **Repository**: Search for sessions by the repository where the agent session occurred.
-- **User**: Search for sessions by the user who initiated the agent session.
-
-To learn more, see our documentation on [AI controls and the agent control plane](https://docs.github.com/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/monitor-agentic-activity).
-
-Join the discussion within [GitHub Community](https://github.com/orgs/community/discussions/178247).
-
-### Additional Resources
-
-- [Monitoring agentic activity in GitHub Enterprise](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/monitor-agentic-activity) — Official documentation on using the AI Controls and agent control plane to filter, discover, and manage agent sessions across your enterprise.
-- [Enterprise AI Controls concepts](https://docs.github.com/en/copilot/concepts/agents/enterprise-management) — Conceptual overview of GitHub Enterprise AI Controls, covering how the agent control plane enables administrators to govern Copilot agent usage.
-- [GitHub Community discussion](https://github.com/orgs/community/discussions/178247) — Community discussion thread for enterprise agent management features where administrators can share feedback and ask questions.
+- [About GitHub Copilot Chat](https://docs.github.com/en/copilot/concepts/about-github-copilot-chat) — Overview of GitHub Copilot Chat capabilities across web, IDEs, and mobile environments.
+- [Using Copilot on GitHub.com](https://docs.github.com/en/copilot/how-tos/chat/use-copilot-on-github.com) — Guide to all GitHub Copilot Chat features available directly in the browser, including repository context.
+- [Repository exploration community discussion](https://github.com/orgs/community/discussions/189235) — Community forum thread for sharing feedback on the new repository exploration feature in Copilot on the web.
 
 ---
