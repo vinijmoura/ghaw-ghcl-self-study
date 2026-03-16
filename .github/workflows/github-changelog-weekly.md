@@ -29,12 +29,12 @@ You are an automated documentation agent. Your task is to collect the GitHub Cha
 ## Step 1: Determine the Date Range
 
 Calculate the date range for this week's report:
-- **Start date**: The previous Sunday (inclusive), at 00:00:00 UTC — exactly 7 days before today
-- **End date**: Today (the current Sunday, inclusive), at 23:59:59 UTC
+- **Start date**: The last Sunday (inclusive), at 00:00:00 UTC
+- **End date**: The following Saturday (inclusive), at 23:59:59 UTC
 
-This means: any changelog entry published on or after the previous Sunday (00:00:00 UTC) and on or before the current Sunday (23:59:59 UTC) should be included.
+This means: any changelog entry published on or after the last Sunday (00:00:00 UTC) and on or before the following Saturday (23:59:59 UTC) should be included.
 
-Use today's date to compute the ISO week number and the year. The target directory will be:
+Use today's date to determine the last Sunday and the following Saturday. The target directory will be:
 
 ```
 docs/github-changelog/YYYY-WeekN/
