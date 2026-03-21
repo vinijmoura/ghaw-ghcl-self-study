@@ -103,14 +103,17 @@ The file must have this structure:
 
 ---
 
-## Feature Title 1
+## GitHub Actions (CI/CD)
+
+### Feature Title 1
 
 **Published:** YYYY-MM-DD
 **Source:** https://github.blog/changelog/...
+**Category:** <one category from the preferred order above>
 
-### Description
+### Summary
 
-Original description extracted from the GitHub Changelog.
+2-4 sentence summary of the changelog update in plain language, preserving the key behavior change, impacted users, and rollout/status notes if available.
 
 ### Additional Resources
 
@@ -119,16 +122,35 @@ Original description extracted from the GitHub Changelog.
 
 ---
 
-## Feature Title 2
+### Feature Title 2
 
 ...
 ```
 
 Rules for the content:
-- Use the exact title from the changelog as the `##` heading.
+- Use category section headings (`##`) for each category that has at least one item.
+- Use feature headings as `###` inside each category section.
+- The category section order must be exactly:
+  1. GitHub Actions (CI/CD)
+  2. GitHub Copilot (AI)
+  3. Code Versioning (Repositories + Git)
+  4. Pull Requests
+  5. Security (Dependabot / Code Scanning)
+  6. Codespaces
+  7. Packages / Releases
+  8. GitHub Pages
+  9. Issues
+  10. Social Features (Stars, Forks, Watch)
+  11. Others (only when needed)
+- Omit empty category sections.
+- Use the exact title from the changelog as the feature heading (`###`).
 - Include the publication date in `YYYY-MM-DD` format.
 - Include the direct link to the original changelog post.
-- Use the original description text (with HTML stripped, as plain Markdown). Do not paraphrase or summarize; include the full original description.
+- Do not include the full original description.
+- Create a concise summary for each item (2-4 sentences) based on the changelog description (HTML stripped).
+- Add a `Category` field for every item using exactly one category from the preferred order list.
+- Group items by category and present categories following the preferred order.
+- Within each category, sort items by publication date descending (newest first).
 - List all additional resources found, with a short one-sentence explanation for each.
 - If no changelog entries were found for the week, write a short note indicating there were no updates published for this period.
 - Separate each entry with a `---` horizontal rule.
