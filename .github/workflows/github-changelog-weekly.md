@@ -29,21 +29,21 @@ You are an automated documentation agent. Your task is to collect the GitHub Cha
 ## Step 1: Determine the Date Range
 
 Calculate the date range for this week's report:
-- **Start date**: The last Sunday (inclusive), at 00:00:00 UTC
-- **End date**: The following Saturday (inclusive), at 23:59:59 UTC
+- **Start date**: The previous Sunday (inclusive), at 00:00:00 UTC
+- **End date**: The previous Saturday (inclusive), at 23:59:59 UTC
 
-This means: any changelog entry published on or after the last Sunday (00:00:00 UTC) and on or before the following Saturday (23:59:59 UTC) should be included.
+This means: when this workflow runs on Sunday, it must include any changelog entry published on or after the Sunday from the week that just ended (00:00:00 UTC) and on or before the immediately preceding Saturday (23:59:59 UTC).
 
-Use today's date to determine the last Sunday and the following Saturday. The target directory will be:
+Use today's date to determine the previous Sunday and the previous Saturday. The target directory will be:
 
 ```
 docs/github-changelog/YYYY-WeekN/
 ```
 
-Where `YYYY` is the 4-digit year and `N` is the ISO week number (no leading zero). For example, if today is 2026-03-15 (week 11), the directory is:
+Where `YYYY` is the 4-digit year and `N` is the ISO week number (no leading zero) of the report's end date (the previous Saturday). For example, if today is 2026-03-15 (Sunday), the report period is 2026-03-08 to 2026-03-14, and the directory is:
 
 ```
-docs/github-changelog/2026-Week11/
+docs/github-changelog/2026-Week10/
 ```
 
 ## Step 2: Fetch the GitHub Changelog
@@ -54,7 +54,7 @@ Fetch the GitHub Changelog RSS feed to get structured data about all recent post
 https://github.blog/changelog/feed/
 ```
 
-Parse the RSS XML response and collect all `<item>` entries whose `<pubDate>` falls within the date range calculated in Step 1 (from previous Sunday to today, inclusive).
+Parse the RSS XML response and collect all `<item>` entries whose `<pubDate>` falls within the date range calculated in Step 1 (from the previous Sunday to the previous Saturday, inclusive).
 
 For each matching item extract:
 - **Title** (`<title>`)
